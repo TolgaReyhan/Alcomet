@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алкомет АД</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-6kTXHgPjI5fGzVXfDdH5JUMIHDkKeGmKXu9FtK3O0nQ6gPA8S3+ZefcgNvY0YiN3wqTb3bmnUS09TqQk0U4cyA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h2 {
+            background: linear-gradient(to right, #003366, #0066cc);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+            background-color: #fff;
+            margin: 10px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input,
+        form textarea {
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #003366;
+            color: #fff;
+        }
+
+        .icon {
+            margin-right: 8px;
+            color: #003366;
+            transition: transform 0.5s ease;
+        }
+
+        .icon:hover {
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .carousel-images img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #003366;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0066cc;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            background: linear-gradient(to bottom, #f4f4f4, #e0e0e0);
+            transition: background 0.5s ease;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Специфични анимации за определени секции */
+        #products {
+            animation-delay: 0.3s;
+        }
+
+        #history {
+            animation-delay: 0.6s;
+        }
+
+        #contact {
+            animation-delay: 0.9s;
+        }
+
+        button {
+            background-color: #003366;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0066cc;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#top" id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <header>
+        <h1><i class="fas fa-industry icon pulse"></i>Алкомет АД</h1>
+        <nav>
+            <ul>
+                <li><a href="#about"><i class="fas fa-info-circle icon pulse"></i>За нас</a></li>
+                <li><a href="#products"><i class="fas fa-boxes icon pulse"></i>Продукти</a></li>
+                <li><a href="#history"><i class="fas fa-history icon pulse"></i>История</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope icon pulse"></i>Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2><i class="fas fa-info-circle icon pulse"></i>За нас</h2>
+        <p>„Алкомет“ АД е водещ производител на алуминиеви валцови и пресови продукти в Югоизточна Европа, със седалище
+            в град Шумен, България. Компанията разполага с модерна производствена база и осигурява работа на над 1000
+            служители. Нашият производствен капацитет включва над 100 000 тона годишно, като над 90% от продукцията се
+            изнася в страни от ЕС и други международни пазари.</p>
+        <div class="image-container">
+            <img src="zx952y526_4094135.jpg" alt="Завод Алкомет">
+        </div>
+    </section>
+
+    <section id="products">
+        <h2><i class="fas fa-boxes icon pulse"></i>Продукти</h2>
+        <ul>
+            <li><strong>Алуминиеви листа и ленти</strong> – използвани в строителството, автомобилостроенето и
+                електрониката.</li>
+            <li><strong>Алуминиево фолио</strong> – за опаковки в хранителната, фармацевтичната и козметичната
+                индустрия.</li>
+            <li><strong>Пресовани профили</strong> – стандартни и по индивидуален проект за различни индустрии.</li>
+            <li><strong>Тръби и рамки</strong> – изработени с висока прецизност и устойчивост.</li>
+        </ul>
+        <div class="carousel">
+            <div class="carousel-images" id="carouselImages">
+                <img src="v2.jpg" alt="Продуктова линия 1">
+                <img src="Screenshot_1.jpg" alt="Продуктова линия 2">
+                <img src="2.jpg" alt="Продуктова линия 3">
+            </div>
+            <div class="carousel-buttons">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="history">
+        <h2><i class="fas fa-history icon pulse"></i>История</h2>
+        <p>Началото на Алкомет води своето начало от 1968 г., когато възниква идеята за изграждане на предприятие за
+            производство на алуминиеви изделия в град Шумен. Реализацията на проекта започва в края на 70-те години, а
+            официалното откриване е през 1981 г.</p>
+        <p>През 1999 г. компанията е приватизирана и започва бърза модернизация. Следват стратегически инвестиции в
+            производствена техника, автоматизация и разширяване на пазарите. Днес Алкомет АД е публична компания,
+            листвана на Българската фондова борса, с утвърдено място на европейския пазар.</p>
+        <div class="image-container">
+            <img src="87314.jpg" alt="История на компанията">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2><i class="fas fa-envelope icon pulse"></i>Контакти</h2>
+        <p><i class="fas fa-map-marker-alt icon"></i>Адрес: гр. Шумен, Втора индустриална зона</p>
+        <p><i class="fas fa-globe icon"></i>Уебсайт: <a href="https://www.alcomet.bg" target="_blank">www.alcomet.bg</a>
+        </p>
+        <button onclick="showAlert()"><i class="fas fa-paper-plane icon"></i>Свържи се с нас</button>
+
+        <h3>Форма за контакт</h3>
+        <form id="contactForm">
+            <label for="name">Вашето име:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Имейл адрес:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Съобщение:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Изпрати</button>
+        </form>
+    </section>
+
+    <footer>
+        <p><i class="far fa-copyright"></i> 2025 Алкомет АД. Всички права запазени.</p>
+    </footer>
+
+    <script>
+        function showAlert() {
+            alert("Благодарим Ви за интереса! Моля, посетете официалния сайт за повече информация.");
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            alert(`Благодарим Ви, ${name}! Съобщението Ви е изпратено успешно.`);
+        }
+    </script>
+    <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const images = document.getElementById("carouselImages");
+            const totalImages = images.children.length;
+            if (index >= totalImages) currentIndex = 0;
+            else if (index < 0) currentIndex = totalImages - 1;
+            else currentIndex = index;
+            images.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        setInterval(nextSlide, 5000);
+    </script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Вашето съобщение беше изпратено успешно!");
+});
+    </script>
+</body>
+
+</html>
