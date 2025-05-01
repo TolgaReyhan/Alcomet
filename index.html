@@ -73,7 +73,31 @@
             <img src="87314.jpg" alt="История на компанията">
         </div>
     </section>
-
+    <section id="videoCarousel">
+        <h2><i class="fas fa-video icon pulse"></i> Видео галерия</h2>
+        <div class="carousel">
+            <div class="carousel-images" id="videoCarouselContainer">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/_pXCyqSbXlY?si=NEwf7j8-Oc2oxCmL" frameborder="0"
+                    allowfullscreen></iframe>
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/X5wZMHCPqXg?si=5DHEZrYM4ahLneiw" frameborder="0"
+                    allowfullscreen></iframe>
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/i-owPTk2KDg?si=C0tz06MZ-6jlkCUQ" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="carousel-buttons">
+                <button onclick="prevYouTubeSlide()">&#10094;</button>
+                <button onclick="nextYouTubeSlide()">&#10095;</button>
+            </div>
+        </div>
+    </section>
+    <section id="location">
+        <h2><i class="fas fa-map-marker-alt icon pulse"></i> Локация</h2>
+        <div style="width: 100%; height: 400px;">
+            <iframe src="https://www.google.com/maps?q=Alcomet+AD,+Shumen,+Bulgaria&output=embed" width="100%"
+                height="400" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
     <section id="contact">
         <h2><i class="fas fa-envelope icon pulse"></i>Контакти</h2>
         <p><i class="fas fa-map-marker-alt icon"></i>Адрес: гр. Шумен, Втора индустриална зона</p>
@@ -85,13 +109,13 @@
         <form id="contactForm">
             <label for="name">Вашето име:</label>
             <input type="text" id="name" name="name" required>
-            
+
             <label for="email">Имейл адрес:</label>
             <input type="email" id="email" name="email" required>
-            
+
             <label for="message">Съобщение:</label>
             <textarea id="message" name="message" required></textarea>
-            
+
             <button type="submit">Изпрати</button>
         </form>
     </section>
@@ -136,10 +160,30 @@
         setInterval(nextSlide, 5000);
     </script>
     <script>
-        document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    alert("Вашето съобщение беше изпратено успешно!");
-});
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Вашето съобщение беше изпратено успешно!");
+        });
+    </script>
+    <script>
+        let currentYTIndex = 0;
+
+        function showYouTubeSlide(index) {
+            const container = document.getElementById("videoCarouselContainer");
+            const totalVideos = container.children.length;
+            if (index >= totalVideos) currentYTIndex = 0;
+            else if (index < 0) currentYTIndex = totalVideos - 1;
+            else currentYTIndex = index;
+            container.style.transform = `translateX(-${currentYTIndex * 100}%)`;
+        }
+
+        function nextYouTubeSlide() {
+            showYouTubeSlide(currentYTIndex + 1);
+        }
+
+        function prevYouTubeSlide() {
+            showYouTubeSlide(currentYTIndex - 1);
+        }
     </script>
 </body>
 
